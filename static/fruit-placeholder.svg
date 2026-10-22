@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" fill="none">
+  <defs>
+    <linearGradient id="background" x1="40" y1="24" x2="600" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7F8F2"/>
+      <stop offset="1" stop-color="#E8EEDC"/>
+    </linearGradient>
+    <linearGradient id="fruit" x1="212" y1="140" x2="425" y2="352" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C4D993"/>
+      <stop offset="1" stop-color="#78965D"/>
+    </linearGradient>
+    <filter id="shadow" x="144" y="128" width="352" height="292" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="17"/>
+    </filter>
+  </defs>
+  <rect width="640" height="420" rx="24" fill="url(#background)"/>
+  <circle cx="517" cy="83" r="75" fill="#fff" fill-opacity=".42"/>
+  <circle cx="111" cy="344" r="94" fill="#fff" fill-opacity=".32"/>
+  <ellipse cx="320" cy="351" fill="#516B43" fill-opacity=".17" filter="url(#shadow)" rx="130" ry="39"/>
+  <path d="M321 176c-35-34-104-30-133 15-31 48-13 130 31 162 29 21 60 4 101 4s74 18 105-6c42-33 57-112 25-160-31-47-92-49-129-15Z" fill="url(#fruit)"/>
+  <path d="M320 181c-4-31 13-57 45-73 18-9 37-12 54-10-8 26-24 45-48 58-17 9-34 17-51 25Z" fill="#648B50"/>
+  <path d="M322 180c-16-31-42-48-80-50 6 27 20 47 43 60 12 7 25 11 37 13" fill="#8EAD67"/>
+  <path d="M211 235c-14 30-13 64 2 90" stroke="#E6F0D1" stroke-linecap="round" stroke-opacity=".65" stroke-width="10"/>
+  <circle cx="464" cy="141" r="9" fill="#D5E5B8"/>
+  <path d="m150 112 8 17 18 3-13 12 3 18-16-9-16 9 3-18-13-12 18-3 8-17Z" fill="#fff" fill-opacity=".75"/>
+</svg>

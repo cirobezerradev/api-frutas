@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f8f2">
+    <meta
+      name="description"
+      content="Organize e gerencie seu catálogo de produtos em um só lugar."
+    >
+    <title>Fruta — seu catálogo, mais simples</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Fruta, início">
+          <span class="brand-mark" aria-hidden="true">f.</span>
+          <span>fruta<span class="brand-period">.</span></span>
+        </a>
+        <div class="topbar-right">
+          <span class="status-indicator"><span></span> API conectada</span>
+          <a class="docs-link" href="/docs" target="_blank" rel="noreferrer">
+            Documentação <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </header>
+
+      <main>
+        <section class="welcome">
+          <div class="welcome-copy">
+            <p class="eyebrow"><span></span> PAINEL DE PRODUTOS</p>
+            <h1>Seu catálogo,<br>em <span>ótima forma.</span></h1>
+            <p class="welcome-description">
+              Um espaço simples para cuidar de cada produto da sua coleção.
+            </p>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <span class="hero-orbit orbit-one"></span>
+            <span class="hero-orbit orbit-two"></span>
+            <span class="hero-fruit fruit-main">🍊</span>
+            <span class="hero-fruit fruit-small">🍋</span>
+            <span class="hero-sparkle sparkle-one">✳</span>
+            <span class="hero-sparkle sparkle-two">✦</span>
+          </div>
+        </section>
+
+        <section class="dashboard" aria-label="Gerenciar produtos">
+          <div class="catalog-panel">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">SUA COLEÇÃO</p>
+                <h2>Todos os produtos <span id="product-count" class="count-badge">—</span></h2>
+              </div>
+              <button class="icon-button" id="refresh-button" type="button" aria-label="Atualizar produtos" title="Atualizar produtos">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20 7v5h-5M4 17v-5h5"></path>
+                  <path d="M5.6 9a7 7 0 0 1 11.8-2L20 12M4 12l2.6 5a7 7 0 0 0 11.8-2"></path>
+                </svg>
+              </button>
+            </div>
+
+            <label class="search-box">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="11" cy="11" r="7"></circle>
+                <path d="m16 16 4 4"></path>
+              </svg>
+              <input id="search-input" type="search" placeholder="Buscar por nome ou ID..." autocomplete="off">
+              <kbd>/</kbd>
+            </label>
+
+            <p class="list-caption">PRODUTOS DA COLEÇÃO</p>
+            <div id="product-list" class="product-list" aria-live="polite" aria-busy="true">
+              <div class="loading-state"><span class="loader"></span> Carregando produtos...</div>
+            </div>
+            <p class="catalog-footnote"><span class="live-dot"></span> Sincronizado com sua API</p>
+          </div>
+
+          <aside class="create-panel">
+            <div class="form-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 5v14M5 12h14"></path>
+              </svg>
+            </div>
+            <p class="eyebrow">NOVO ITEM</p>
+            <h2>Tem novidade<br>por aí?</h2>
+            <p class="form-description">Dê personalidade a cada item da sua coleção.</p>
+            <form id="create-form">
+              <label for="product-name">Nome do produto</label>
+              <div class="input-wrap">
+                <span aria-hidden="true">✳</span>
+                <input
+                  id="product-name"
+                  name="nome"
+                  type="text"
+                  placeholder="Ex.: pitaya"
+                  minlength="1"
+                  maxlength="100"
+                  required
+                >
+              </div>
+              <label for="product-description">Características</label>
+              <textarea
+                class="form-textarea"
+                id="product-description"
+                name="descricao"
+                placeholder="Conte um pouco sobre o produto..."
+                maxlength="300"
+                rows="2"
+              ></textarea>
+              <div class="form-field-row">
+                <label for="product-color">Cor do card</label>
+                <input class="color-input" id="product-color" name="cor" type="color" value="#79945b" aria-label="Escolher cor do card">
+              </div>
+              <label for="product-image">Link da foto</label>
+              <div class="input-wrap">
+                <span aria-hidden="true">↗</span>
+                <input
+                  id="product-image"
+                  name="imagem_url"
+                  type="url"
+                  placeholder="https://..."
+                  maxlength="2048"
+                >
+              </div>
+              <p class="input-hint">Até 100 caracteres</p>
+              <button class="primary-button" id="submit-button" type="submit">
+                <span>Adicionar produto</span>
+                <span class="button-arrow" aria-hidden="true">↗</span>
+              </button>
+            </form>
+            <div class="tip-card">
+              <span class="tip-icon" aria-hidden="true">✦</span>
+              <p><strong>Dica rápida</strong><br>Use nomes curtos para encontrar seus produtos mais facilmente.</p>
+            </div>
+          </aside>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span>Feito com cuidado <span class="heart">♥</span> para o seu catálogo.</span>
+        <span class="footer-version">FRUTA API <span>·</span> V1.0</span>
+      </footer>
+    </div>
+
+    <dialog id="delete-dialog" class="delete-dialog">
+      <form method="dialog">
+        <div class="dialog-icon" aria-hidden="true">↗</div>
+        <p class="eyebrow">REMOVER PRODUTO</p>
+        <h2>Tem certeza?</h2>
+        <p id="delete-message">O produto será removido da sua coleção.</p>
+        <div class="dialog-actions">
+          <button class="secondary-button" value="cancel">Manter produto</button>
+          <button class="danger-button" id="confirm-delete" value="confirm">Sim, remover</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="edit-dialog" class="edit-dialog">
+      <form id="edit-form">
+        <p class="eyebrow">EDITAR PRODUTO</p>
+        <h2>Atualize os detalhes</h2>
+        <label for="edit-name">Nome do produto</label>
+        <input class="dialog-input" id="edit-name" name="nome" type="text" minlength="1" maxlength="100" required>
+        <label for="edit-description">Características</label>
+        <textarea class="dialog-input dialog-textarea" id="edit-description" name="descricao" maxlength="300" rows="3"></textarea>
+        <div class="form-field-row dialog-color-row">
+          <label for="edit-color">Cor do card</label>
+          <input class="color-input" id="edit-color" name="cor" type="color" value="#79945b">
+        </div>
+        <label for="edit-image">Link da foto</label>
+        <input class="dialog-input" id="edit-image" name="imagem_url" type="url" maxlength="2048" placeholder="https://...">
+        <div class="dialog-actions">
+          <button class="secondary-button" id="cancel-edit" type="button">Cancelar</button>
+          <button class="save-button" id="save-edit" type="submit">Salvar alterações</button>
+        </div>
+      </form>
+    </dialog>
+
+    <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  </body>
+</html>
