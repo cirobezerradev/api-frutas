@@ -4,7 +4,6 @@ const searchInput = document.querySelector("#search-input");
 const createForm = document.querySelector("#create-form");
 const productName = document.querySelector("#product-name");
 const productDescription = document.querySelector("#product-description");
-const productColor = document.querySelector("#product-color");
 const productImage = document.querySelector("#product-image");
 const submitButton = document.querySelector("#submit-button");
 const refreshButton = document.querySelector("#refresh-button");
@@ -15,7 +14,6 @@ const editDialog = document.querySelector("#edit-dialog");
 const editForm = document.querySelector("#edit-form");
 const editName = document.querySelector("#edit-name");
 const editDescription = document.querySelector("#edit-description");
-const editColor = document.querySelector("#edit-color");
 const editImage = document.querySelector("#edit-image");
 const saveEditButton = document.querySelector("#save-edit");
 const toastRegion = document.querySelector("#toast-region");
@@ -122,7 +120,6 @@ function renderProducts() {
 
     const photo = document.createElement("div");
     photo.className = "product-photo";
-    photo.style.setProperty("--product-color", product.cor || "#718355");
     const image = document.createElement("img");
     const fallbackImage = "/static/fruit-placeholder.svg";
     image.className = "product-photo-image";
@@ -159,15 +156,6 @@ function renderProducts() {
     description.className = "product-description";
     description.textContent = product.descricao || "Sem características informadas.";
 
-    const colorLabel = document.createElement("div");
-    colorLabel.className = "product-color-label";
-    const swatch = document.createElement("span");
-    swatch.className = "product-color-swatch";
-    swatch.style.backgroundColor = product.cor || "#718355";
-    const colorName = document.createElement("span");
-    colorName.textContent = product.cor || "#718355";
-    colorLabel.append(swatch, colorName);
-
     const remove = document.createElement("button");
     remove.className = "delete-button";
     remove.type = "button";
@@ -186,7 +174,7 @@ function renderProducts() {
     const actions = document.createElement("div");
     actions.className = "product-card-actions";
     actions.append(edit, remove);
-    body.append(heading, description, colorLabel, actions);
+    body.append(heading, description, actions);
     card.append(photo, body);
     fragment.append(card);
   });
@@ -235,17 +223,15 @@ function openEditDialog(product) {
   pendingEdit = product;
   editName.value = product.nome;
   editDescription.value = product.descricao || "";
-  editColor.value = product.cor || "#718355";
   editImage.value = product.imagem_url || "";
   editDialog.showModal();
   editName.focus();
 }
 
-function productPayload(name, description, color, image) {
+function productPayload(name, description, image) {
   return {
     nome: name.trim(),
     descricao: description.trim() || null,
-    cor: color,
     imagem_url: image.trim() || null,
   };
 }
@@ -268,7 +254,6 @@ createForm.addEventListener("submit", async (event) => {
       body: JSON.stringify(productPayload(
         nome,
         productDescription.value,
-        productColor.value,
         productImage.value,
       )),
     });
@@ -307,7 +292,6 @@ editForm.addEventListener("submit", async (event) => {
       body: JSON.stringify(productPayload(
         editName.value,
         editDescription.value,
-        editColor.value,
         editImage.value,
       )),
     });

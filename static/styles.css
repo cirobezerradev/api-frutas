@@ -85,7 +85,7 @@ kbd { min-width: 19px; padding: 2px 5px; border: 1px solid #e8ebe3; border-radiu
 .product-list { min-height: 165px; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); align-content: start; gap: 13px; }
 .product-card { min-width: 0; overflow: hidden; border: 1px solid #edf0e8; border-radius: 13px; background: white; box-shadow: 0 5px 16px rgb(42 54 35 / 4%); animation: row-in .36s both; transition: transform .22s ease, box-shadow .22s ease; }
 .product-card:hover { transform: translateY(-4px); box-shadow: 0 13px 27px rgb(42 54 35 / 11%); }
-.product-photo { height: 132px; position: relative; overflow: hidden; display: grid; place-items: center; background: var(--product-color, #79945b); }
+.product-photo { height: 132px; position: relative; overflow: hidden; display: grid; place-items: center; background: #e8eedc; }
 .product-photo::before, .product-photo::after { position: absolute; width: 135px; height: 135px; border: 1px solid rgb(255 255 255 / 23%); border-radius: 50%; content: ""; }
 .product-photo::before { top: -80px; right: -18px; }
 .product-photo::after { bottom: -100px; left: -38px; }
@@ -96,8 +96,6 @@ kbd { min-width: 19px; padding: 2px 5px; border: 1px solid #e8ebe3; border-radiu
 .product-card .product-name { margin: 0; font: 700 13px "Manrope", sans-serif; letter-spacing: -.2px; }
 .product-id { margin: 4px 0 0; color: #a1a69b; font-size: 9px; }
 .product-description { min-height: 29px; margin: 12px 0 11px; color: #798073; font-size: 10px; line-height: 1.5; }
-.product-color-label { display: flex; align-items: center; gap: 6px; color: #999f92; font-size: 9px; }
-.product-color-swatch { width: 10px; height: 10px; border: 1px solid rgb(30 35 25 / 12%); border-radius: 50%; }
 .product-card-actions { display: flex; justify-content: flex-end; gap: 5px; padding-top: 8px; border-top: 1px solid #f0f1ec; }
 .product-card-actions .delete-button { opacity: .72; }
 .edit-button { min-height: 29px; display: inline-flex; align-items: center; gap: 5px; padding: 0 9px; border: 0; border-radius: 7px; color: var(--green); background: #f1f5eb; cursor: pointer; font-size: 9px; font-weight: 700; transition: background .2s ease; }
@@ -140,9 +138,6 @@ kbd { min-width: 19px; padding: 2px 5px; border: 1px solid #e8ebe3; border-radiu
 .form-textarea::placeholder { color: #b1c0af; }
 .form-textarea:focus { border-color: #d5ef77; }
 .form-field-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.color-input { width: 35px; height: 27px; padding: 2px; border: 1px solid rgb(255 255 255 / 20%); border-radius: 7px; background: rgb(255 255 255 / 8%); cursor: pointer; }
-.create-panel .form-field-row { margin-top: 12px; }
-.create-panel .form-field-row label { margin: 0; }
 .input-hint { margin: 6px 0 13px; color: #b8cbb7; font-size: 8px; }
 .primary-button { width: 100%; height: 41px; display: flex; align-items: center; justify-content: space-between; padding: 0 12px; border: 0; border-radius: 8px; color: #233b27; background: var(--lime); cursor: pointer; font-size: 10px; font-weight: 700; transition: transform .2s, background .2s; }
 .primary-button:hover { transform: translateY(-2px); background: #e1f59b; }
@@ -167,9 +162,6 @@ kbd { min-width: 19px; padding: 2px 5px; border: 1px solid #e8ebe3; border-radiu
 .dialog-input { width: 100%; min-height: 38px; padding: 9px 10px; border: 1px solid #e7ebe1; border-radius: 8px; outline: 0; color: var(--ink); background: #fbfcf9; font: 11px "DM Sans", sans-serif; }
 .dialog-input:focus { border-color: #9bb681; box-shadow: 0 0 0 3px rgb(155 182 129 / 14%); }
 .dialog-textarea { resize: vertical; }
-.dialog-color-row { margin-bottom: 12px; }
-.dialog-color-row label { margin: 0; }
-.dialog-color-row .color-input { border-color: #e7ebe1; background: #fbfcf9; }
 .save-button { color: #233b27; background: var(--lime); }
 .save-button:hover { background: #e1f59b; }
 .dialog-actions button:disabled { cursor: wait; opacity: .7; }

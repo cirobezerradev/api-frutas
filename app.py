@@ -15,7 +15,6 @@ class Produto(BaseModel):
     id: int
     nome: str
     descricao: str | None = None
-    cor: str = '#718355'
     imagem_url: HttpUrl | None = None
 
 
@@ -25,7 +24,6 @@ class ProdutoCreate(BaseModel):
         StringConstraints(min_length=1, max_length=100, strip_whitespace=True),
     ]
     descricao: str | None = None
-    cor: Annotated[str, StringConstraints(pattern=r'^#[0-9a-fA-F]{6}$')] = '#718355'
     imagem_url: HttpUrl | None = None
 
 
@@ -34,11 +32,11 @@ class ProdutoUpdate(ProdutoCreate):
 
 
 produtos: dict[int, Produto] = {
-    1: Produto(id=1, nome='abacate', descricao='Fruta cremosa e rica em nutrientes.', cor='#79945b'),
-    2: Produto(id=2, nome='abacaxi', descricao='Fruta tropical de sabor marcante.', cor='#e4b94f'),
-    3: Produto(id=3, nome='kiwi', descricao='Pequeno, refrescante e cheio de sabor.', cor='#6e9b69'),
-    4: Produto(id=4, nome='melancia', descricao='Refrescante e perfeita para os dias quentes.', cor='#d97972'),
-    5: Produto(id=5, nome='banana', descricao='Prática, doce e cheia de energia.', cor='#e7c75b'),
+    1: Produto(id=1, nome='abacate', descricao='Fruta cremosa e rica em nutrientes.'),
+    2: Produto(id=2, nome='abacaxi', descricao='Fruta tropical de sabor marcante.'),
+    3: Produto(id=3, nome='kiwi', descricao='Pequeno, refrescante e cheio de sabor.'),
+    4: Produto(id=4, nome='melancia', descricao='Refrescante e perfeita para os dias quentes.'),
+    5: Produto(id=5, nome='banana', descricao='Prática, doce e cheia de energia.'),
 }
 
 @app.get('/')
